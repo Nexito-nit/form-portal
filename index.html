@@ -51,19 +51,17 @@
             margin-top: 6px;
         }
 
-        .nav-bar {
-            background: rgb(255, 255, 255);
-            padding: 12px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            border-bottom: 1px solid #0080ff;
-            box-shadow: 0 4px 12px rgb(0, 4, 255);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+ .nav-bar {
+    background: rgb(255, 255, 255);
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    border-bottom: 1px solid #0080ff;
+    box-shadow: 0 4px 12px rgb(0, 4, 255);
+    position: relative;   /* यह डालो sticky की जगह */
+}
 
         .nav-bar a {
             text-decoration: none;
