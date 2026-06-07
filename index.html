@@ -1,0 +1,1091 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Sarkari Update | सरकारी भर्ती 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Nirmala UI', sans-serif;
+            background: #eef2f7;
+            color: #235e56;
+            line-height: 1.5;
+        }
+
+        .header {
+            background: hwb(184 4% 43%);
+            color: rgb(255, 255, 255);
+            padding: 10px 0;
+            text-align: center;
+            border-bottom: 3px solid #1900ff;
+            box-shadow: 0 4px 12px rgb(0, 4, 255);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .site-logo {
+            height: 80px;
+            width: auto;
+            margin-right: 20px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+        }
+
+        .header h1 small {
+            font-size: 14px;
+            font-weight: 400;
+            display: block;
+            color: #000000;
+            margin-top: 6px;
+        }
+
+        .nav-bar {
+            background: rgb(255, 255, 255);
+            padding: 12px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            border-bottom: 1px solid #0080ff;
+            box-shadow: 0 4px 12px rgb(0, 4, 255);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-bar a {
+            text-decoration: none;
+            color: #0a2b44;
+            box-shadow: 0 4px 12px rgb(0, 4, 255);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 22px;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .nav-bar a:hover {
+            background: linear-gradient(135deg, #0a2b44 0%, #1e5a7a 100%);
+            color: rgb(255, 255, 255);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(10, 43, 68, 0.25);
+        }
+
+        .section {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+            min-height: 400px;
+        }
+
+        .job-card {
+            background: rgb(255, 255, 255);
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgb(0, 26, 255);
+            overflow: hidden;
+            border: 1px solid #1100ff;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+        .card-header {
+            background: #ffffff;
+            padding: 20px 24px;
+            border-bottom: 3px solid #075e12;
+        }
+
+        .card-header h2 {
+            font-size: 24px;
+            color: #0a2b44;
+            margin-bottom: 6px;
+        }
+
+        .card-header .org {
+            color: #8f0505;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .card-body {
+            padding: 22px 24px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            background: #f8fafd;
+            padding: 18px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            border: 1px solid #0066ff;
+        }
+
+        .info-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #2c404e;
+        }
+
+        .info-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a2c3e;
+            margin-top: 5px;
+        }
+
+        .badge-red {
+            background: #fee2e2;
+            color: #0011ff;
+            box-shadow: 0 4px 12px rgb(0, 4, 255);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 5px;
+        }
+
+        .btn {
+            padding: 12px 26px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            text-align: center;
+            transition: 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #016e0a;
+            color: rgb(255, 255, 255);
+            
+        }
+
+        .btn-primary:hover {
+            background: #1c8d3e;
+            transform: translateY(-2px);
+           
+        }
+
+        .box-style {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer {
+            background: #0a2b44;
+            color: #b8c9e0;
+            text-align: center;
+            padding: 28px 20px;
+            margin-top: 50px;
+            font-size: 13px;
+        }
+
+        .table-head {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #0a2b44;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 12px;
+            border-bottom: 1px solid #e2e8f0;
+            align-items: center;
+            background: rgb(255, 255, 255);
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .blink-text {
+    color: rgb(255, 0, 234);
+    font-weight: bold;
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+.site-logo {
+    transition: transform 1s ease-in-out; /* घूमने की रफ़्तार */
+}
+
+.site-logo:hover {
+    transform: rotate(360deg); /* माउस ले जाने पर 360 डिग्री घूमेगा */
+}
+
+
+        @media (max-width: 800px) {
+            .card-header h2 {
+                font-size: 20px;
+            }
+
+            .nav-bar a {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+        }
+
+        /* SABHI CARDS / BOXES / TABLES KE LIYE BLUE SHADOW */
+.job-card,
+.box-style,
+.table-row,
+.admit-box,
+.result-box,
+.Admission-box,
+.PDFPYQ-box,
+.STATELATESTJOB,
+.UNIVERSITYUPDATE {
+    box-shadow: 0 10px 20px rgb(0, 0, 255) !important;
+    transition: all 0.3s ease;
+}
+
+/* HOVER KARNE PE THODA AUR NICE EFFECT */
+.job-card:hover,
+.box-style:hover,
+.table-row:hover {
+    box-shadow: 0 16px 28px rgba(0, 0, 255, 0.4) !important;
+    transform: translateY(-3px);
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    max-height: 25px;
+    margin: 5px auto;
+    background: white;
+    border-radius: 5px;
+    padding: 5px 50px;
+    border: 1px solid #ccc;
+}
+.search-container i {
+    font-size: 18px;
+    color: #0a2b44;
+}
+.search-container input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 12px 0;
+    font-size: 16px;
+    background: transparent;
+}
+
+@media (max-width:600px){
+    .info-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+.clickable-row {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: 5px;
+    transition: 0.2s;
+}
+
+.clickable-row .table-row {
+    transition: 0.2s;
+    border-radius: 8px;
+}
+
+.clickable-row:hover .table-row {
+    background: #e6f0ff;
+    transform: translateY(-2px);
+}
+
+.board-name {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.expired-blink {
+    font-size: 28px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    display: block;
+    margin: 15px 0;
+    animation: blinker 1s step-start infinite;
+    background: #ffe6e6;
+    padding: 15px;
+    border-radius: 12px;
+    border: 2px solid red;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="logo png.png" alt="Logo" class="site-logo" alt="logo">
+        <h1>NEW UPDATE <sup class="blink-text">24/7</sup>  <small>latest update_24/7.info</small></h1>
+    </div>
+
+    <div class="search-container">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" placeholder="🔍 search">
+</div>
+
+
+    <div class="nav-bar">
+        <a onclick="showSection('latestjobSection')">latest JOBS</a>
+        <a onclick="showSection('admitCardSection')">🎫 एडमिट कार्ड</a>
+        <a onclick="showSection('resultSection')">📊 रिजल्ट</a>
+        <a onclick="showSection('result10thSection')">🎓 10th Result</a>
+        <a onclick="showSection('result12thSection')">🎓 12th Result</a>
+        <a onclick="showSection('AdmissionSection')">🎓 Admission</a>
+        <a onclick="showSection('PDFPYQSection')">📄 PDF PYQ</a>
+        <a onclick="showSection('UniversitySection')">UNIVERSITY UPDATE</a>
+        <a onclick="showSection('answerkeySection')">ANSWER KEY</a>
+        <a onclick="showSection('entranceExamSection')">📚 ENTRANCE EXAM</a>
+    </div>
+
+    
+    <!-- लेटेस्ट जॉब्स सेक्शन -->
+    <div id="latestjobSection" class="section">
+        <div class="job-card" >
+            <div class="card-header">
+               <div style="flex-shrink: 0;">
+        
+    </div>  
+                <h1>RRB ALP CEN</h1>
+            </div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Application Start Date : 15 May 2026
+Last Date : 14 June 2026
+Fee Payment Last Date : 16 June 2026
+Correction / Modified Form : 17-26 June 2026 </div>
+                        <div class="info-value">9,195</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">योग्यता</div>
+                        <div class="info-value">10वीं पास</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">आयु सीमा</div>
+                        <div class="info-value">18-23 वर्ष</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">अंतिम तारीख</div>
+                        <div class="info-value">19 मई 2026 </div><p style="color:rgb(255, 0, 0); font-size:12px; margin-bottom:10px;">फीस: Gen: 560/-, OBC/SC/ST: 310/-</p> <!-- फीस को बाहर रखें --></div>
+                <a href="#" class="btn btn-primary">✅ Link Here</a>
+                 <a href="#" class="btn btn-primary">✅ Ditails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+             <div class="job-card" >
+            <div class="card-header">
+               <div style="flex-shrink: 0;">
+       
+    </div>  
+                <h1>UPSSSC Assistant Statistical Officer 2026</h1>
+            </div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">कुल पद </div>
+                        <div class="info-value">9,195</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">योग्यता</div>
+                        <div class="info-value">10वीं पास</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">आयु सीमा</div>
+                        <div class="info-value">18-23 वर्ष</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">अंतिम तारीख</div>
+                        <div class="info-value">19 मई 2026 </div><p style="color:rgb(255, 0, 0); font-size:12px; margin-bottom:10px;">फीस: Gen: 560/-, OBC/SC/ST: 310/-</p> <!-- फीस को बाहर रखें --></div>
+                <a href="#" class="btn btn-primary">✅ Link Here</a>
+                 <a href="#" class="btn btn-primary">✅ Ditails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+         <div class="job-card" >
+            <div class="card-header">
+               <div style="flex-shrink: 0;">
+    </div>  
+                <h1>MP Guest Teacher 2026</h1>
+            </div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">कुल पद </div>
+                        <div class="info-value">9,195</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">योग्यता</div>
+                        <div class="info-value">10वीं पास</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">आयु सीमा</div>
+                        <div class="info-value">18-23 वर्ष</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">अंतिम तारीख</div>
+                        <div class="info-value">19 मई 2026 </div><p style="color:rgb(255, 0, 0); font-size:12px; margin-bottom:10px;">फीस: Gen: 560/-, OBC/SC/ST: 310/-</p> <!-- फीस को बाहर रखें -->
+                <a href="#" class="btn btn-primary">✅ Link Here</a>
+                 <a href="#" class="btn btn-primary">✅ Ditails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="job-card" >
+            <div class="card-header">
+               <div style="flex-shrink: 0;">
+    </div>  
+                <h1>UPPSC APO 2025 Mains [2026]</h1>
+            </div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">कुल पद </div>
+                        <div class="info-value">9,195</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">योग्यता</div>
+                        <div class="info-value">10वीं पास</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">आयु सीमा</div>
+                        <div class="info-value">18-23 वर्ष</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">अंतिम तारीख</div>
+                        <div class="info-value">19 मई 2026 </div><p style="color:rgb(255, 0, 0); font-size:12px; margin-bottom:10px;">फीस: Gen: 560/-, OBC/SC/ST: 310/-</p> <!-- फीस को बाहर रखें -->
+                <a href="#" class="btn btn-primary">✅ Link Here</a>
+                 <a href="#" class="btn btn-primary">✅ Ditails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="job-card" >
+            <div class="card-header">
+               <div style="flex-shrink: 0;">
+    </div>  
+                <h1>Coal India CIL Management Trainee [2026]</h1>
+            </div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">कुल पद </div>
+                        <div class="info-value">9,195</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">योग्यता</div>
+                        <div class="info-value">10वीं पास</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">आयु सीमा</div>
+                        <div class="info-value">18-23 वर्ष</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">अंतिम तारीख</div>
+                        <div class="info-value">19 मई 2026 </div><p style="color:rgb(255, 0, 0); font-size:12px; margin-bottom:10px;">फीस: Gen: 560/-, OBC/SC/ST: 310/-</p> <!-- फीस को बाहर रखें -->
+                <a href="#" class="btn btn-primary">✅ Link Here</a>
+                 <a href="#" class="btn btn-primary">✅ Ditails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="job-card" >
+            <div class="card-header">
+               <div style="flex-shrink: 0;">
+    </div>  
+                <h1>Railway SECR Raipur Apprentices [2026]</h1>
+            </div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">कुल पद </div>
+                        <div class="info-value">9,195</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">योग्यता</div>
+                        <div class="info-value">10वीं पास</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">आयु सीमा</div>
+                        <div class="info-value">18-23 वर्ष</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">अंतिम तारीख</div>
+                        <div class="info-value">19 मई 2026 </div><p style="color:rgb(255, 0, 0); font-size:12px; margin-bottom:10px;">फीस: Gen: 560/-, OBC/SC/ST: 310/-</p> <!-- फीस को बाहर रखें -->
+                <a href="#" class="btn btn-primary">✅ Link Here</a>
+                 <a href="#" class="btn btn-primary">✅ Ditails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="job-card" >
+            <div class="card-header">
+               <div style="flex-shrink: 0;">
+    </div>  
+                <h1>SSC Stenographer 2025 Option Cum Preference [2026]</h1>
+            </div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">कुल पद </div>
+                        <div class="info-value">9,195</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">योग्यता</div>
+                        <div class="info-value">10वीं पास</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">आयु सीमा</div>
+                        <div class="info-value">18-23 वर्ष</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">अंतिम तारीख</div>
+                        <div class="info-value">19 मई 2026 </div><p style="color:rgb(255, 0, 0); font-size:12px; margin-bottom:10px;">फीस: Gen: 560/-, OBC/SC/ST: 310/-</p> <!-- फीस को बाहर रखें -->
+                <a href="#" class="btn btn-primary">✅ Link Here</a>
+                 <a href="#" class="btn btn-primary">✅ Ditails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="job-card" >
+            <div class="card-header">
+               <div style="flex-shrink: 0;">
+    </div>  
+                <h1>Navy SSC Executive IT [2026]</h1>
+            </div>
+            <div class="card-body">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">कुल पद </div>
+                        <div class="info-value">9,195</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">योग्यता</div>
+                        <div class="info-value">10वीं पास</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">आयु सीमा</div>
+                        <div class="info-value">18-23 वर्ष</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">अंतिम तारीख</div>
+                        <div class="info-value">19 मई 2026 </div><p style="color:rgb(255, 0, 0); font-size:12px; margin-bottom:10px;">फीस: Gen: 560/-, OBC/SC/ST: 310/-</p> <!-- फीस को बाहर रखें -->
+                <a href="#" class="btn btn-primary">✅ Link Here</a>
+                 <a href="#" class="btn btn-primary">✅ Ditails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- एडमिट कार्ड सेक्शन -->
+    <div id="admitCardSection" class="section" style="display: none;">
+    <div class="box-style">
+        <h2>🎫 एडमिट कार्ड डाउनलोड करें</h2>
+        <div class="table-head">
+            <div>📌 भर्ती का नाम</div>
+            <div>🔗 लिंक</div>
+        </div>
+
+        <!-- 1. CRPF Row -->
+        <div class="table-row">
+            <div>🇮🇳 CRPF भर्ती 2026</div>
+            <div><a href="#" class="btn btn-primary">✅ Download</a></div>
+        </div> <!-- यहाँ सिर्फ एक बार बंद होगा -->
+
+        <!-- 2. BSF Row -->
+        <div class="table-row">
+            <div>🇮🇳 BSF भर्ती 2026</div>
+            <div><a href="#" class="btn btn-primary">✅ Download</a></div>
+        </div>
+
+    </div> <!-- यह box-style को बंद कर रहा है -->
+</div> <!-- यह admitCardSection को बंद कर रहा है -->
+
+    <!-- रिजल्ट सेक्शन -->
+    <div id="resultSection" class="section" style="display: none;">
+        <div class="box-style">
+            <h2>📊 रिजल्ट देखें</h2>
+            <div class="table-head">
+                <div>📌 परीक्षा</div>
+                <div>🔗 लिंक</div>
+            </div>
+            <div class="table-row">
+                <div>SSC GD 2026</div>
+                <div><a href="#" class="btn btn-primary">✅ Check Result</a></div>
+            </div>
+            <div class="table-row">
+                <div>CRPF 2026</div>
+                <div><a href="#" class="btn btn-primary">✅ Check Result</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10th Result -->
+    <div id="result10thSection" class="section" style="display: none;">
+        <div class="box-style">
+            <h2>🎓 10th Class Results</h2></div>
+       <a href="https://result.biharboardonline.org/
+" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="bihar board.jpg" style="width: 50px; height: 50px; border-radius: 20px;"> Bihar Board (BSEB)</div></div>
+</a>
+          <a href="https://www.jacresults.com/VS6GKIUOGJ9PR87UY04Y0BQ144HNYET6" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="jharkhand board.webp" style="width: 50px; height: 50px; border-radius: 20px;"> jharkhand Board</div></div>
+</a>
+<a href="https://www.gseb.org/?utm_source=chatgpt.com" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="gujrat board png.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Gujarat Board</div></div>
+</a><a href="https://registration2020.pseb.ac.in/PunAdd/PunAddResults" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Punjab_School_Education_Board_(logo).jpg" style="width: 50px; height: 50px; border-radius: 20px;">Punjab Board</div></div>
+</a><a href="https://rajeduboard.rajasthan.gov.in/?utm_source=chatgpt.com" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="rajysthan board.png" style="width: 50px; height: 50px; border-radius: 20px;">Rajasthan Board</div></div>
+</a>
+<a href="https://karresults.nic.in/first_sl_kar26_sslc.asp" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Karnataka.png" style="width: 50px; height: 50px; border-radius: 20px;">Karnataka Board</div></div>
+</a><a href="https://results.cisce.org/?utm_source=chatgpt.com" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="icse.jpg" style="width: 50px; height: 50px; border-radius: 20px;">ICSE - ISC Board</div></div>
+</a><a href="https://results.nios.ac.in/home/on-demand?type=2" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="NIOS Board Exams 2025 Starts, Check Guidelines for Class 10 & 12-3021-logo.png" style="width: 50px; height: 50px; border-radius: 20px;">NIOS Board</div></div>
+</a><a href="https://cbseresults.nic.in/class_x_jj_2026_de/ClassTenth_xy_2026.htm" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="cbse.png" style="width: 50px; height: 50px; border-radius: 20px;">CBSE Board</div></div>
+</a>
+
+
+
+<a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="rajysthan board.png" style="width: 50px; height: 50px; border-radius: 20px;"> RSOS Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="asseb.png" style="width: 50px; height: 50px; border-radius: 20px;">Assam Board </div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="madhaypradesh board.png" style="width: 50px; height: 50px; border-radius: 20px;">Madhya Pradesh Board </div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a>
+  <a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="uttarpradesh board.png" style="width: 50px; height: 50px; border-radius: 20px;"> Uttar Pradesh Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Goa_Board.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Goa Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Arunachal_Pradesh_Seal.svg.png" style="width: 50px; height: 50px; border-radius: 20px;">Arunachal pradesh Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="chhatisgarh.png" style="width: 50px; height: 50px; border-radius: 20px;">Chhattisgarh Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="himachal pradesh.png" style="width: 50px; height: 50px; border-radius: 20px;"> Himachal Pradesh Board </div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Meghalaya.webp" style="width: 50px; height: 50px; border-radius: 20px;">Meghalaya Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="sikkim.png" style="width: 50px; height: 50px; border-radius: 20px;">Sikkim Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="telangana.webp" style="width: 50px; height: 30px; border-radius: 20px;">Telangana Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="westbangal board.png" style="width: 50px; height: 50px; border-radius: 20px;">West Bengal Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="andhrapradesh board.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Andhra Pradesh Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="mizoram.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Mizoram Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="jammu & kashmir.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Jammu & Kashmir Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="kerala board.png" style="width: 50px; height: 50px; border-radius: 20px;">Kerala Board </div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="haryana.gif" style="width: 50px; height: 50px; border-radius: 20px;"> Harayana Board </div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="manipur.png" style="width: 50px; height: 50px; border-radius: 20px;">Manipur Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Bse.odisha.logo.jpg" style="width: 50px; height: 50px; border-radius: 20px;"> Odisha Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="utraakhand board.webp" style="width: 50px; height: 50px; border-radius: 20px;"> Uttarakhand Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="tamilnadu.png" style="width: 50px; height: 50px; border-radius: 20px;"> Tamilnadu Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="maharastra board.png" style="width: 50px; height: 50px; border-radius: 20px;"> Maharashtra Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="nagaland.webp" style="width: 50px; height: 50px; border-radius: 20px;">Nagaland Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="tripura board.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Tripura Board</div> <div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a>
+</div>
+</div>
+
+    <!-- 12th Result -->
+    <div id="result12thSection" class="section" style="display: none;">
+        <div class="box-style">
+            <h2>🎓 12th Class Results</h2></div>
+            <a href="https://biharboardonline.com" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="bihar board.jpg" style="width: 50px; height: 50px; border-radius: 20px;"> Bihar Board (BSEB)</div></div>
+</a><a href="https://jacresults.com/?utm_source=chatgpt.com" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="jharkhand board.webp" style="width: 50px; height: 50px; border-radius: 20px;"> jharkhand Board</div></div>
+</a><a href="https://bsehexam2017.in/SplExamResult/MainResult.aspx" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="rajysthan board.png" style="width: 50px; height: 50px; border-radius: 20px;">Rajysthan (RSOS) Board</div></div>
+</a><a href="https://results.ahsecregistration.in/as/ahsec/class-12th-exam-result-2026-ahsec/query.htm" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="asseb.png" style="width: 50px; height: 50px; border-radius: 20px;">Assam Board </div></div>
+</a><a href="https://www.gseb.org/?utm_source=chatgpt.com" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="gujrat board png.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Gujarat Board</div></div>
+</a><a href="https://registration2024.pseb.ac.in/Recheck/RecheckUpdateList" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Punjab_School_Education_Board_(logo).jpg" style="width: 50px; height: 50px; border-radius: 20px;">Punjab Board</div></div>
+</a><a href="https://resultsbie.ap.gov.in/?utm_source=chatgpt.com" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="andhrapradesh board.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Andhra Pradesh Board</div></div>
+</a><a href="https://karresults.nic.in/?utm_source=chatgpt.com" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Karnataka.png" style="width: 50px; height: 50px; border-radius: 20px;">Karnataka Board</div></div>
+</a><a href="https://results.cisce.org/?utm_source=chatgpt.com" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="icse.jpg" style="width: 50px; height: 50px; border-radius: 20px;">ICSE - ISC Board</div></div>
+</a><a href="https://results.nios.ac.in/home/on-demand?type=2" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="NIOS Board Exams 2025 Starts, Check Guidelines for Class 10 & 12-3021-logo.png" style="width: 50px; height: 50px; border-radius: 20px;">NIOS Board</div></div>
+</a>
+
+
+
+            <a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="uttarpradesh board.png" style="width: 50px; height: 50px; border-radius: 20px;"> Uttar Pradesh Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="cbse.png" style="width: 50px; height: 50px; border-radius: 20px;">CBSE Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="madhaypradesh board.png" style="width: 50px; height: 50px; border-radius: 20px;">Madhya Pradesh Board </div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Goa_Board.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Goa Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Arunachal_Pradesh_Seal.svg.png" style="width: 50px; height: 50px; border-radius: 20px;">Arunachal pradesh Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="chhatisgarh.png" style="width: 50px; height: 50px; border-radius: 20px;">Chhattisgarh Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="himachal pradesh.png" style="width: 50px; height: 50px; border-radius: 20px;"> Himachal Pradesh Board </div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Meghalaya.webp" style="width: 50px; height: 50px; border-radius: 20px;">Meghalaya Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="sikkim.png" style="width: 50px; height: 50px; border-radius: 20px;">Sikkim Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="telangana.webp" style="width: 50px; height: 30px; border-radius: 20px;">Telangana Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="westbangal board.png" style="width: 50px; height: 50px; border-radius: 20px;">West Bengal Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="mizoram.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Mizoram Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="jammu & kashmir.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Jammu & Kashmir Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="kerala board.png" style="width: 50px; height: 50px; border-radius: 20px;">Kerala Board </div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="haryana.gif" style="width: 50px; height: 50px; border-radius: 20px;"> Harayana Board </div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="manipur.png" style="width: 50px; height: 50px; border-radius: 20px;">Manipur Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="Bse.odisha.logo.jpg" style="width: 50px; height: 50px; border-radius: 20px;"> Odisha Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="utraakhand board.webp" style="width: 50px; height: 50px; border-radius: 20px;"> Uttarakhand Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="tamilnadu.png" style="width: 50px; height: 50px; border-radius: 20px;"> Tamilnadu Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="maharastra board.png" style="width: 50px; height: 50px; border-radius: 20px;"> Maharashtra Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="nagaland.webp" style="width: 50px; height: 50px; border-radius: 20px;">Nagaland Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a><a href="" target="_blank" class="clickable-row">
+    <div class="table-row">
+        <div><img src="tripura board.jpg" style="width: 50px; height: 50px; border-radius: 20px;">Tripura Board</div><div style="color: red; font-weight: bold;">⚠️ Result Not Available</div></div>
+</a>
+</div>
+</div>
+
+    <!-- Admission Section -->
+    <div id="AdmissionSection" class="section" style="display: none;">
+        <div class="box-style">
+            <h2>🎓 Admission 2026</h2>
+            <div class="table-head">
+                <div>📌 कॉलेज/यूनिवर्सिटी</div>
+                <div>🔗 लिंक</div>
+            </div>
+            <div class="table-row">
+                <div>Patliputra University</div>
+                <div><a href="#" class="btn btn-primary">✅ Apply Now</a></div>
+            </div>
+            <div class="table-row">
+                <div>Delhi University</div>
+                <div><a href="#" class="btn btn-primary">✅ Apply Now</a></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF PYQ Section -->
+    <div id="PDFPYQSection" class="section" style="display: none;">
+        <div class="box-style">
+            <h2>📄 PDF Previous Year Papers</h2>
+            <div class="table-head">
+                <div>📌 पेपर का नाम</div>
+                <div>🔗 डाउनलोड</div>
+            </div>
+            <div class="table-row">
+                <div>SSC CGL PYQ</div>
+                <div><a href="#" class="btn btn-primary">✅ Download PDF</a></div>
+            </div>
+            <div class="table-row">
+                <div>CRPF Previous Paper</div>
+                <div><a href="#" class="btn btn-primary">✅ Download PDF</a></div>
+            </div>
+        </div>
+    </div>
+
+    
+
+  
+  <!-- University Section -->
+<div id="UniversitySection" class="section" style="display: none;">
+    <div class="job-card">
+        <div class="card-header">  <img src="magadh uni.png" alt="Logo" class="site-logo" alt="logo"><h2>मगध विश्वविधालय, बोधगया
+Magadh University, Bodh Gaya</h2></div>
+        <div class="card-body">
+            <div class="info-grid">
+                <div class="info-item"><div class="info-label">Update</div><div class="info-value">Exam Form 2026</div></div>
+                <div class="info-item"><div class="info-label">Status</div><div class="info-value">Active</div></div>
+            </div>
+            <a href="https://www.magadhonline.in" class="btn btn-primary" style="margin-top:10px;">✅ Click Here</a>
+        </div>
+    </div>
+
+    <div class="job-card">
+        <div class="card-header">  <img src="patliputra univer.png" alt="Logo" class="site-logo" alt="logo"><h1>पाटलिपुत्र विश्वविधालय
+Patliputra University, Patna</h1>
+            </div>
+        <div class="card-body">
+            <div class="info-grid">
+                <div class="info-item"><div class="info-label">Update</div><div class="info-value">Exam Form 2026</div></div>
+                <div class="info-item"><div class="info-label">Status</div><div class="info-value">Active</div></div>
+            </div>
+            <a href="https://ppup.ac.in/admission-notice" class="btn btn-primary" style="margin-top:10px;">✅ Click Here</a>
+        </div>
+    </div>
+    <div class="job-card">
+        <div class="card-header">   <img src="patna univer.png" alt="Logo" class="site-logo" alt="logo"><h1> पटना विश्वविधालय Patna University </h1>
+            </div>
+        <div class="card-body">
+            <div class="info-grid">
+                <div class="info-item"><div class="info-label">Update</div><div class="info-value">Exam Form 2026</div></div>
+                <div class="info-item"><div class="info-label">Status</div><div class="info-value">Active</div></div>
+            </div>
+            <a href="https://www.pup.ac.in/Default.aspx" class="btn btn-primary" style="margin-top:10px;">✅ Click Here</a>
+        </div>
+    </div>
+     <div class="job-card">
+        <div class="card-header"><img src="br ambedkar.png" alt="Logo" class="site-logo" alt="logo"><h1>बाबा साहेब भीमराव अम्बेडकर Babasaheb Bhimrao Ambedkar Bihar University
+  </h1></div>
+        <div class="card-body">
+            <div class="info-grid">
+                <div class="info-item"><div class="info-label">Update</div><div class="info-value">Exam Form 2026</div></div>
+                <div class="info-item"><div class="info-label">Status</div><div class="info-value">Active</div></div>
+            </div>
+            <a href="https://brabu.ac.in/home/constituent_college" class="btn btn-primary" style="margin-top:10px;">✅ Click Here</a>
+        </div>
+    </div>
+    <div class="job-card">
+        <div class="card-header">   <img src="Nalanda_Uni_Logo.svg.png" alt="Logo" class="site-logo" alt="logo"><h1>नालंदा विश्वविधालय Nalanda university
+
+  </h1>
+            </div>
+
+        <div class="card-body">
+            <div class="info-grid">
+                <div class="info-item"><div class="info-label">Update</div><div class="info-value">Exam Form 2026</div></div>
+                <div class="info-item"><div class="info-label">Status</div><div class="info-value">Active</div></div>
+            </div>
+            <a href="https://nalandauniv.edu.in" class="btn btn-primary" style="margin-top:10px;">✅ Click Here</a>
+        </div>
+    </div>
+    <div class="job-card">
+        <div class="card-header">  <img src="jpu.avif" alt="Logo" class="site-logo" alt="logo"><h1>जय प्रकाश विश्वविद्यालय छपरा, Jai Prakash University Chapra
+
+  </h1>
+
+            </div>
+
+        <div class="card-body">
+            <div class="info-grid">
+                <div class="info-item"><div class="info-label">Update</div><div class="info-value">Exam Form 2026</div></div>
+                <div class="info-item"><div class="info-label">Status</div><div class="info-value">Active</div></div>
+            </div>
+            <a href="https://www.jpv.ac.in" class="btn btn-primary" style="margin-top:10px;">✅ Click Here</a>
+        </div>
+    </div>
+</div>
+
+
+    <div id="answerkeySection" class="section" style="display: none;">
+    <div class="box-style">
+        <h2>📚 Answer key (Previous Year Papers)</h2>
+        <div class="table-head">
+            <div>📌 VACANCIES LIST </div>
+            <div>SHOW ANSWER</div>
+        </div>
+        <div class="table-row">
+            <div>SSC CGL Practice Set</div>
+            <div><a href="#" class="btn btn-primary">✅ click here</a></div>
+        </div>
+        <div class="table-row">
+            <div>CRPF Previous Year</div>
+            <div><a href="#" class="btn btn-primary">✅ click here</a></div>
+        </div>
+        <div class="table-row">
+            <div>Maths Practice Book</div>
+            <div><a href="#" class="btn btn-primary">✅ click here</a></div>
+        </div>
+    </div>
+    </div>
+
+    
+<div id="entranceExamSection" class="section" style="display: none;">
+    <div class="job-card">
+        <div class="card-header"><h1>JEE MAIN 2026</h1></div>
+        <div class="card-body">
+            <p>Entrance Exam for Engineering Admission.</p>
+            <a href="#" class="btn btn-primary" style="margin-top:10px;">✅ Apply Now</a>
+        </div>
+    </div>
+</div>
+
+    <!-- फुटर -->
+    <div class="footer">
+        <p>⚠️ यह एक सूचनात्मक पोर्टल है। आधिकारिक जानकारी के लिए विभाग की वेबसाइट जरूर देखें।</p>
+        <p>© 2026 सरकारी अपडेट | All Rights Reserved</p>
+    </div>
+
+    <script> function showSection(sectionId) {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(sec => {
+            sec.style.display = 'none';
+        });
+        const target = document.getElementById(sectionId);
+        if(target) { target.style.display = 'block';}
+        window.scrollTo(0, 0);
+    }
+
+    function searchWebsite() {
+        let input = document.getElementById('searchInput').value.toLowerCase().trim();
+        const allSections = document.querySelectorAll('.section');
+        
+        if (input === "") {
+            showSection('latestjobSection');
+            return;
+        }
+
+        allSections.forEach(section => {
+            const text = section.innerText.toLowerCase();
+            if (text.includes(input)) {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        });
+    }
+
+    document.getElementById('searchInput').addEventListener('keyup', searchWebsite);
+    </script>
+
+</body>
+
+</html>
