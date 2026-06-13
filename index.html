@@ -915,7 +915,7 @@ Patliputra University, Patna</h1>
                     inline: 'center'
                 });
             }
-        }, 50);
+        }, 10); // ← 10ms kar diya (pehle 50 tha)
     }
 
     // ========== SHOW SECTION (TAP) ==========
@@ -950,14 +950,22 @@ Patliputra University, Patna</h1>
             return;
         }
 
+        let visibleSectionId = null;
         allSections.forEach(section => {
             const text = section.innerText.toLowerCase();
             if (text.includes(searchText)) {
                 section.style.display = 'block';
+                if(!visibleSectionId) visibleSectionId = section.id;
             } else {
                 section.style.display = 'none';
             }
         });
+        
+        // 🔥 Search ke baad nav link update
+        if(visibleSectionId) {
+            updateActiveNavLink(visibleSectionId);
+            scrollNavToActiveLink();
+        }
     }
 
     let searchBox = document.getElementById('searchInput');
@@ -971,6 +979,7 @@ Patliputra University, Patna</h1>
         let touchEndX = 0;
         let isAnimating = false;
         
+        // 🔥 FIXED: pdfpyqsection (small p) 🔥
         const sectionsList = [
             'latestjobSection',
             'admitCardSection',
@@ -978,7 +987,7 @@ Patliputra University, Patna</h1>
             'result10thSection',
             'result12thSection',
             'AdmissionSection',
-            'PDFPYQSection',
+            'pdfpyqsection',        // ← small p se likha
             'UniversitySection',
             'answerkeySection',
             'entranceExamSection'
@@ -1001,20 +1010,16 @@ Patliputra University, Patna</h1>
             const startPos = direction === 'left' ? '100%' : '-100%';
             const endPos = direction === 'left' ? '-100%' : '100%';
             
-            // Setup
             oldSection.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
             newSection.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
             newSection.style.display = 'block';
             newSection.style.transform = `translateX(${startPos})`;
             
-            // Force reflow
             void newSection.offsetHeight;
             
-            // Animate
             oldSection.style.transform = `translateX(${endPos})`;
             newSection.style.transform = 'translateX(0)';
             
-            // Cleanup
             setTimeout(() => {
                 oldSection.style.display = 'none';
                 oldSection.style.transform = '';
