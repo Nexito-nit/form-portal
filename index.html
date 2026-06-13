@@ -853,6 +853,24 @@ Patliputra University, Patna</h1>
         });
         targetSection.style.display = 'block';
         window.scrollTo(0, 0);
+        
+        // 🔥 NAV LINK ACTIVE 🔥
+        updateActiveNavLink(sectionId);
+    }
+
+    // Nav link active style
+    function updateActiveNavLink(sectionId) {
+        const allLinks = document.querySelectorAll('.nav-bar a');
+        allLinks.forEach(link => {
+            const onclickAttr = link.getAttribute('onclick');
+            if(onclickAttr && onclickAttr.includes(sectionId)) {
+                link.style.background = 'linear-gradient(135deg, #0a2b44 0%, #1e5a7a 100%)';
+                link.style.color = 'white';
+            } else {
+                link.style.background = '';
+                link.style.color = '#0a2b44';
+            }
+        });
     }
 
     // Search function
@@ -884,7 +902,7 @@ Patliputra University, Patna</h1>
         searchBox.addEventListener('keyup', searchWebsite);
     }
 
-    // ========== SWIPE WITH SLIDE ANIMATION (ONLY FOR SWIPE) ==========
+    // ========== SWIPE WITH ANIMATION + ACTIVE NAV LINK ==========
     (function() {
         let touchStartX = 0;
         let touchEndX = 0;
@@ -913,34 +931,23 @@ Patliputra University, Patna</h1>
             return 0;
         }
         
-        function animateSwipe(oldSection, newSection, direction) {
+        function animateSwipe(oldSection, newSection, direction, newSectionId) {
             if(isAnimating) return;
             isAnimating = true;
             
-            // Reset any existing styles
-            oldSection.style.transition = '';
-            newSection.style.transition = '';
-            oldSection.style.transform = '';
-            newSection.style.transform = '';
-            
-            // Direction: 'left' (next) ya 'right' (prev)
             const startPos = direction === 'left' ? '100%' : '-100%';
             const endPos = direction === 'left' ? '-100%' : '100%';
             
-            // Setup
             oldSection.style.transition = 'transform 0.3s ease-out';
             newSection.style.transition = 'transform 0.3s ease-out';
             newSection.style.display = 'block';
             newSection.style.transform = `translateX(${startPos})`;
             
-            // Force browser reflow
             void newSection.offsetHeight;
             
-            // Trigger animation
             oldSection.style.transform = `translateX(${endPos})`;
             newSection.style.transform = 'translateX(0)';
             
-            // Cleanup
             setTimeout(() => {
                 oldSection.style.display = 'none';
                 oldSection.style.transform = '';
@@ -948,6 +955,9 @@ Patliputra University, Patna</h1>
                 oldSection.style.transition = '';
                 newSection.style.transition = '';
                 isAnimating = false;
+                
+                // 🔥 NAV LINK ACTIVE 🔥
+                updateActiveNavLink(newSectionId);
             }, 320);
         }
         
@@ -956,9 +966,10 @@ Patliputra University, Patna</h1>
             let current = getCurrentIndex();
             if(current < sectionsList.length - 1) {
                 let oldSec = document.getElementById(sectionsList[current]);
-                let newSec = document.getElementById(sectionsList[current + 1]);
+                let newSecId = sectionsList[current + 1];
+                let newSec = document.getElementById(newSecId);
                 if(oldSec && newSec) {
-                    animateSwipe(oldSec, newSec, 'left');
+                    animateSwipe(oldSec, newSec, 'left', newSecId);
                 }
             }
         }
@@ -968,9 +979,10 @@ Patliputra University, Patna</h1>
             let current = getCurrentIndex();
             if(current > 0) {
                 let oldSec = document.getElementById(sectionsList[current]);
-                let newSec = document.getElementById(sectionsList[current - 1]);
+                let newSecId = sectionsList[current - 1];
+                let newSec = document.getElementById(newSecId);
                 if(oldSec && newSec) {
-                    animateSwipe(oldSec, newSec, 'right');
+                    animateSwipe(oldSec, newSec, 'right', newSecId);
                 }
             }
         }
@@ -986,9 +998,9 @@ Patliputra University, Patna</h1>
             if(Math.abs(diff) < 50) return;
             
             if(diff > 0) {
-                showPrev();  // Right swipe → previous
+                showPrev();
             } else {
-                showNext();  // Left swipe → next
+                showNext();
             }
         });
     })();
