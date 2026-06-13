@@ -8,6 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>form portal</title>
     <style>
+      /* Nav bar smooth scrolling */
+.nav-bar {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Active nav link */
+.nav-bar a.active-nav {
+    background: linear-gradient(135deg, #0a2b44 0%, #1e5a7a 100%) !important;
+    color: white !important;
+}
       /* Active nav link */
 .nav-bar a.active-nav {
     background: linear-gradient(135deg, #0a2b44 0%, #1e5a7a 100%) !important;
@@ -878,27 +891,17 @@ Patliputra University, Patna</h1>
     }
 
     // ========== NAV BAR KO SCROLL KARO ==========
-    function scrollNavToActiveLink(sectionId) {
-        const allLinks = document.querySelectorAll('.nav-bar a');
-        let activeLink = null;
-        
-        allLinks.forEach(link => {
-            let onclickValue = link.getAttribute('onclick');
-            if(onclickValue) {
-                let match = onclickValue.match(/showSection\('([^']+)'\)/);
-                if(match && match[1] === sectionId) {
-                    activeLink = link;
-                }
+    function scrollNavToActiveLink() {
+        setTimeout(function() {
+            let activeLink = document.querySelector('.nav-bar a.active-nav');
+            if(activeLink) {
+                activeLink.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest',
+                    inline: 'center'
+                });
             }
-        });
-        
-        if(activeLink) {
-            activeLink.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest',
-                inline: 'center'
-            });
-        }
+        }, 50); // Thoda delay for smoothness
     }
 
     // ========== SHOW SECTION (TAP) ==========
@@ -917,7 +920,7 @@ Patliputra University, Patna</h1>
         window.scrollTo(0, 0);
         
         updateActiveNavLink(sectionId);
-        scrollNavToActiveLink(sectionId);  // Nav bar scroll
+        scrollNavToActiveLink();  // Nav bar scroll
     }
 
     // ========== SEARCH FUNCTION ==========
@@ -949,7 +952,7 @@ Patliputra University, Patna</h1>
         searchBox.addEventListener('keyup', searchWebsite);
     }
 
-    // ========== SWIPE WITH ANIMATION ==========
+    // ========== SWIPE FEATURE ==========
     (function() {
         let touchStartX = 0;
         let touchEndX = 0;
@@ -978,46 +981,13 @@ Patliputra University, Patna</h1>
             return 0;
         }
         
-        function animateSwipe(oldSection, newSection, direction, newSectionId) {
-            if(isAnimating) return;
-            isAnimating = true;
-            
-            const startPos = direction === 'left' ? '100%' : '-100%';
-            const endPos = direction === 'left' ? '-100%' : '100%';
-            
-            oldSection.style.transition = 'transform 0.3s ease-out';
-            newSection.style.transition = 'transform 0.3s ease-out';
-            newSection.style.display = 'block';
-            newSection.style.transform = `translateX(${startPos})`;
-            
-            void newSection.offsetHeight;
-            
-            oldSection.style.transform = `translateX(${endPos})`;
-            newSection.style.transform = 'translateX(0)';
-            
-            setTimeout(() => {
-                oldSection.style.display = 'none';
-                oldSection.style.transform = '';
-                newSection.style.transform = '';
-                oldSection.style.transition = '';
-                newSection.style.transition = '';
-                isAnimating = false;
-                
-                updateActiveNavLink(newSectionId);
-                scrollNavToActiveLink(newSectionId);  // 🔥 NAV BAR SCROLL 🔥
-            }, 320);
-        }
-        
         function showNext() {
             if(isAnimating) return;
             let current = getCurrentIndex();
             if(current < sectionsList.length - 1) {
-                let oldSec = document.getElementById(sectionsList[current]);
-                let newSecId = sectionsList[current + 1];
-                let newSec = document.getElementById(newSecId);
-                if(oldSec && newSec) {
-                    animateSwipe(oldSec, newSec, 'left', newSecId);
-                }
+                isAnimating = true;
+                showSection(sectionsList[current + 1]);
+                setTimeout(function() { isAnimating = false; }, 300);
             }
         }
         
@@ -1025,12 +995,9 @@ Patliputra University, Patna</h1>
             if(isAnimating) return;
             let current = getCurrentIndex();
             if(current > 0) {
-                let oldSec = document.getElementById(sectionsList[current]);
-                let newSecId = sectionsList[current - 1];
-                let newSec = document.getElementById(newSecId);
-                if(oldSec && newSec) {
-                    animateSwipe(oldSec, newSec, 'right', newSecId);
-                }
+                isAnimating = true;
+                showSection(sectionsList[current - 1]);
+                setTimeout(function() { isAnimating = false; }, 300);
             }
         }
         
