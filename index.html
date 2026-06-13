@@ -8,6 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>form portal</title>
     <style>
+      /* Active nav link */
+.nav-bar a.active-nav {
+    background: linear-gradient(135deg, #0a2b44 0%, #1e5a7a 100%) !important;
+    color: white !important;
+}
+
+/* Nav bar smooth scrolling */
+.nav-bar {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
 /* Smooth transitions */
 .section {
     will-change: transform;
@@ -850,7 +861,7 @@ Patliputra University, Patna</h1>
         <p>© 2026 सरकारी अपडेट | All Rights Reserved</p>
     </div>
 <script> 
-    // ========== NAV LINK ACTIVE FUNCTION (FIXED) ==========
+    // ========== NAV LINK ACTIVE FUNCTION ==========
     function updateActiveNavLink(sectionId) {
         const allLinks = document.querySelectorAll('.nav-bar a');
         allLinks.forEach(link => {
@@ -864,6 +875,30 @@ Patliputra University, Patna</h1>
                 }
             }
         });
+    }
+
+    // ========== NAV BAR KO SCROLL KARO ==========
+    function scrollNavToActiveLink(sectionId) {
+        const allLinks = document.querySelectorAll('.nav-bar a');
+        let activeLink = null;
+        
+        allLinks.forEach(link => {
+            let onclickValue = link.getAttribute('onclick');
+            if(onclickValue) {
+                let match = onclickValue.match(/showSection\('([^']+)'\)/);
+                if(match && match[1] === sectionId) {
+                    activeLink = link;
+                }
+            }
+        });
+        
+        if(activeLink) {
+            activeLink.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'center'
+            });
+        }
     }
 
     // ========== SHOW SECTION (TAP) ==========
@@ -882,6 +917,7 @@ Patliputra University, Patna</h1>
         window.scrollTo(0, 0);
         
         updateActiveNavLink(sectionId);
+        scrollNavToActiveLink(sectionId);  // Nav bar scroll
     }
 
     // ========== SEARCH FUNCTION ==========
@@ -967,8 +1003,8 @@ Patliputra University, Patna</h1>
                 newSection.style.transition = '';
                 isAnimating = false;
                 
-                // Update nav link highlight
                 updateActiveNavLink(newSectionId);
+                scrollNavToActiveLink(newSectionId);  // 🔥 NAV BAR SCROLL 🔥
             }, 320);
         }
         
