@@ -18,6 +18,11 @@
 .nav-bar a {
     transition: all 0.3s ease;
 }
+      /* Active nav link - Ye IMPORTANT hai */
+.nav-bar a.active-nav {
+    background: linear-gradient(135deg, #0a2b44 0%, #1e5a7a 100%) !important;
+    color: white !important;
+}
         * {
             margin: 0;
             padding: 0;
@@ -845,23 +850,17 @@ Patliputra University, Patna</h1>
         <p>© 2026 सरकारी अपडेट | All Rights Reserved</p>
     </div>
 <script> 
-    // ========== NAV LINK ACTIVE FUNCTION ==========
+    // ========== NAV LINK ACTIVE FUNCTION (FIXED) ==========
     function updateActiveNavLink(sectionId) {
         const allLinks = document.querySelectorAll('.nav-bar a');
         allLinks.forEach(link => {
-            // Extract sectionId from onclick attribute
             let onclickValue = link.getAttribute('onclick');
             if(onclickValue) {
-                // Match like: showSection('latestjobSection')
                 let match = onclickValue.match(/showSection\('([^']+)'\)/);
                 if(match && match[1] === sectionId) {
-                    link.style.background = 'linear-gradient(135deg, #0a2b44 0%, #1e5a7a 100%)';
-                    link.style.color = 'white';
-                    link.style.boxShadow = '0 4px 12px rgb(0, 4, 255)';
+                    link.classList.add('active-nav');
                 } else {
-                    link.style.background = '';
-                    link.style.color = '#0a2b44';
-                    link.style.boxShadow = '0 4px 12px rgb(0, 4, 255)';
+                    link.classList.remove('active-nav');
                 }
             }
         });
@@ -882,7 +881,6 @@ Patliputra University, Patna</h1>
         targetSection.style.display = 'block';
         window.scrollTo(0, 0);
         
-        // Update active nav link
         updateActiveNavLink(sectionId);
     }
 
@@ -915,7 +913,7 @@ Patliputra University, Patna</h1>
         searchBox.addEventListener('keyup', searchWebsite);
     }
 
-    // ========== SWIPE WITH ANIMATION + ACTIVE NAV LINK ==========
+    // ========== SWIPE WITH ANIMATION ==========
     (function() {
         let touchStartX = 0;
         let touchEndX = 0;
@@ -951,26 +949,16 @@ Patliputra University, Patna</h1>
             const startPos = direction === 'left' ? '100%' : '-100%';
             const endPos = direction === 'left' ? '-100%' : '100%';
             
-            // Reset styles
-            oldSection.style.transition = '';
-            newSection.style.transition = '';
-            oldSection.style.transform = '';
-            newSection.style.transform = '';
-            
-            // Setup animation
             oldSection.style.transition = 'transform 0.3s ease-out';
             newSection.style.transition = 'transform 0.3s ease-out';
             newSection.style.display = 'block';
             newSection.style.transform = `translateX(${startPos})`;
             
-            // Force reflow
             void newSection.offsetHeight;
             
-            // Start animation
             oldSection.style.transform = `translateX(${endPos})`;
             newSection.style.transform = 'translateX(0)';
             
-            // Cleanup
             setTimeout(() => {
                 oldSection.style.display = 'none';
                 oldSection.style.transform = '';
@@ -979,7 +967,7 @@ Patliputra University, Patna</h1>
                 newSection.style.transition = '';
                 isAnimating = false;
                 
-                // 🔥 CRITICAL: Update nav link after animation 🔥
+                // Update nav link highlight
                 updateActiveNavLink(newSectionId);
             }, 320);
         }
@@ -1010,7 +998,6 @@ Patliputra University, Patna</h1>
             }
         }
         
-        // Touch events
         document.body.addEventListener('touchstart', function(e) {
             touchStartX = e.changedTouches[0].screenX;
         });
@@ -1029,9 +1016,9 @@ Patliputra University, Patna</h1>
         });
     })();
     
-    // Initialize - show first section and highlight first nav link
+    // Initialize
     showSection('latestjobSection');
-    </script>
+</script>
 </body>
 
 </html>
