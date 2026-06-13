@@ -863,6 +863,66 @@ Patliputra University, Patna</h1>
     }
 
     document.getElementById('searchInput').addEventListener('keyup', searchWebsite);
+
+  (function() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const sectionsList = [
+            'latestjobSection',
+            'admitCardSection',
+            'resultSection',
+            'result10thSection',
+            'result12thSection',
+            'AdmissionSection',
+            'PDFPYQSection',
+            'UniversitySection',
+            'answerkeySection',
+            'entranceExamSection'
+        ];
+        
+        function getCurrentIndex() {
+            for(let i = 0; i < sectionsList.length; i++) {
+                let sec = document.getElementById(sectionsList[i]);
+                if(sec && sec.style.display !== 'none') {
+                    return i;
+                }
+            }
+            return 0;
+        }
+        
+        function showNext() {
+            let current = getCurrentIndex();
+            if(current < sectionsList.length - 1) {
+                showSection(sectionsList[current + 1]);
+            }
+        }
+        
+        function showPrev() {
+            let current = getCurrentIndex();
+            if(current > 0) {
+                showSection(sectionsList[current - 1]);
+            }
+        }
+        
+        document.body.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.body.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            let diff = touchEndX - touchStartX;
+            
+            if(Math.abs(diff) < 50) return;
+            
+            if(diff > 0) {
+                showPrev();
+            } else {
+                showNext();
+            }
+        });
+    })();
+      
     </script>
 </body>
 
