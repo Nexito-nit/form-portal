@@ -8,11 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>form portal</title>
     <style>
-      /* Smooth transitions ke liye */
+/* Smooth transitions */
 .section {
-    transition: none; /* Default no transition */
     will-change: transform;
     backface-visibility: hidden;
+}
+
+/* Nav links ke liye smooth transition */
+.nav-bar a {
+    transition: all 0.3s ease;
 }
         * {
             margin: 0;
@@ -841,7 +845,29 @@ Patliputra University, Patna</h1>
         <p>© 2026 सरकारी अपडेट | All Rights Reserved</p>
     </div>
 <script> 
-    // Simple showSection without animation (for tap/search)
+    // ========== NAV LINK ACTIVE FUNCTION ==========
+    function updateActiveNavLink(sectionId) {
+        const allLinks = document.querySelectorAll('.nav-bar a');
+        allLinks.forEach(link => {
+            // Extract sectionId from onclick attribute
+            let onclickValue = link.getAttribute('onclick');
+            if(onclickValue) {
+                // Match like: showSection('latestjobSection')
+                let match = onclickValue.match(/showSection\('([^']+)'\)/);
+                if(match && match[1] === sectionId) {
+                    link.style.background = 'linear-gradient(135deg, #0a2b44 0%, #1e5a7a 100%)';
+                    link.style.color = 'white';
+                    link.style.boxShadow = '0 4px 12px rgb(0, 4, 255)';
+                } else {
+                    link.style.background = '';
+                    link.style.color = '#0a2b44';
+                    link.style.boxShadow = '0 4px 12px rgb(0, 4, 255)';
+                }
+            }
+        });
+    }
+
+    // ========== SHOW SECTION (TAP) ==========
     function showSection(sectionId) {
         const sections = document.querySelectorAll('.section');
         const targetSection = document.getElementById(sectionId);
@@ -850,30 +876,17 @@ Patliputra University, Patna</h1>
         
         sections.forEach(sec => {
             sec.style.display = 'none';
+            sec.style.transform = '';
+            sec.style.transition = '';
         });
         targetSection.style.display = 'block';
         window.scrollTo(0, 0);
         
-        // 🔥 NAV LINK ACTIVE 🔥
+        // Update active nav link
         updateActiveNavLink(sectionId);
     }
 
-    // Nav link active style
-    function updateActiveNavLink(sectionId) {
-        const allLinks = document.querySelectorAll('.nav-bar a');
-        allLinks.forEach(link => {
-            const onclickAttr = link.getAttribute('onclick');
-            if(onclickAttr && onclickAttr.includes(sectionId)) {
-                link.style.background = 'linear-gradient(135deg, #0a2b44 0%, #1e5a7a 100%)';
-                link.style.color = 'white';
-            } else {
-                link.style.background = '';
-                link.style.color = '#0a2b44';
-            }
-        });
-    }
-
-    // Search function
+    // ========== SEARCH FUNCTION ==========
     function searchWebsite() {
         let input = document.getElementById('searchInput');
         if(!input) return;
@@ -938,16 +951,26 @@ Patliputra University, Patna</h1>
             const startPos = direction === 'left' ? '100%' : '-100%';
             const endPos = direction === 'left' ? '-100%' : '100%';
             
+            // Reset styles
+            oldSection.style.transition = '';
+            newSection.style.transition = '';
+            oldSection.style.transform = '';
+            newSection.style.transform = '';
+            
+            // Setup animation
             oldSection.style.transition = 'transform 0.3s ease-out';
             newSection.style.transition = 'transform 0.3s ease-out';
             newSection.style.display = 'block';
             newSection.style.transform = `translateX(${startPos})`;
             
+            // Force reflow
             void newSection.offsetHeight;
             
+            // Start animation
             oldSection.style.transform = `translateX(${endPos})`;
             newSection.style.transform = 'translateX(0)';
             
+            // Cleanup
             setTimeout(() => {
                 oldSection.style.display = 'none';
                 oldSection.style.transform = '';
@@ -956,7 +979,7 @@ Patliputra University, Patna</h1>
                 newSection.style.transition = '';
                 isAnimating = false;
                 
-                // 🔥 NAV LINK ACTIVE 🔥
+                // 🔥 CRITICAL: Update nav link after animation 🔥
                 updateActiveNavLink(newSectionId);
             }, 320);
         }
@@ -987,6 +1010,7 @@ Patliputra University, Patna</h1>
             }
         }
         
+        // Touch events
         document.body.addEventListener('touchstart', function(e) {
             touchStartX = e.changedTouches[0].screenX;
         });
@@ -1004,6 +1028,9 @@ Patliputra University, Patna</h1>
             }
         });
     })();
+    
+    // Initialize - show first section and highlight first nav link
+    showSection('latestjobSection');
     </script>
 </body>
 
