@@ -1218,157 +1218,91 @@ For PH Candidates : ₹ 0/-</p>
         <p>© 2026 सरकारी अपडेट | All Rights Reserved</p>
     </div>
 
-    <script>
-        function updateActiveNavLink(sectionId) {
-            const allLinks = document.querySelectorAll('.nav-bar a');
-            allLinks.forEach(link => {
-                let onclickValue = link.getAttribute('onclick');
-                if (onclickValue) {
-                    let match = onclickValue.match(/showSection\('([^']+)'\)/);
-                    if (match && match[1] === sectionId) {
-                        link.classList.add('active-nav');
-                    } else {
-                        link.classList.remove('active-nav');
-                    }
-                }
-            });
+
+   <script>
+    let currentTab = 'latestjobSection';
+
+    function showSection(sectionId) {
+        currentTab = sectionId; 
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(sec => {
+            sec.style.display = 'none';
+        });
+        const target = document.getElementById(sectionId);
+        if (target) {
+            target.style.display = 'block';
+        }
+        const allItems = document.querySelectorAll('.job-card, .table-row, .clickable-row');
+        allItems.forEach(item => item.style.display = "");
+        updateActiveNavLink(sectionId);
+        window.scrollTo(0, 0);
+    }
+
+    function searchWebsite() {
+        let input = document.getElementById('searchInput');
+        let filter = input.value.toLowerCase().trim();
+        let sections = document.querySelectorAll('.section');
+        let items = document.querySelectorAll('.job-card, .table-row, .clickable-row');
+        if (filter === "") {
+            showSection(currentTab);
+            return;
         }
 
-        function scrollNavToActiveLink() {
-            setTimeout(function () {
-                let activeLink = document.querySelector('.nav-bar a.active-nav');
-                if (activeLink) {
-                    activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        sections.forEach(sec => sec.style.display = 'none');
+
+        items.forEach(item => {
+            let text = item.innerText.toLowerCase();
+            if (text.includes(filter)) {
+                item.style.display = ""; 
+                let parentSection = item.closest('.section');
+                if (parentSection) {
+                    parentSection.style.display = 'block';
                 }
-            }, 10);
+            } else {
+                item.style.display = "none"; 
+            }
+        });
+    }
+
+    function updateActiveNavLink(sectionId) {
+        const links = document.querySelectorAll('.nav-bar a');
+        links.forEach(link => {
+            const attr = link.getAttribute('onclick');
+            if (attr && attr.includes(sectionId)) {
+                link.classList.add('active-nav');
+            } else {
+                link.classList.remove('active-nav');
+            }
+        });
+    }
+
+    let touchStartX = 0;
+    const sectionsList = [
+        'latestjobSection', 'result10thSection', 'result12thSection', 
+        'AdmissionSection', 'UniversitySection', 
+        'answerkeySection', 'entranceExamSection'
+    ];
+
+    document.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener('touchend', e => {
+        let touchEndX = e.changedTouches[0].screenX;
+        let diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) < 100) return; 
+        let currentIndex = sectionsList.indexOf(currentTab);
+        if (diff > 0 && currentIndex < sectionsList.length - 1) {
+            showSection(sectionsList[currentIndex + 1]); 
+        } else if (diff < 0 && currentIndex > 0) {
+            showSection(sectionsList[currentIndex - 1]);
         }
+    }, false);
+   
+    document.getElementById('searchInput').addEventListener('keyup', searchWebsite);
 
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            const targetSection = document.getElementById(sectionId);
-            if (!targetSection) return;
-            sections.forEach(sec => {
-                sec.style.display = 'none';
-                sec.style.transform = '';
-                sec.style.transition = '';
-            });
-            targetSection.style.display = 'block';
-            window.scrollTo(0, 0);
-            updateActiveNavLink(sectionId);
-            scrollNavToActiveLink();
-        }
-
-        function searchWebsite() {
-            let input = document.getElementById('searchInput');
-            if (!input) return;
-            let searchText = input.value.toLowerCase().trim();
-            const allSections = document.querySelectorAll('.section');
-            if (searchText === "") {
-                showSection('latestjobSection');
-                return;
-            }
-            let visibleSectionId = null;
-            allSections.forEach(section => {
-                const text = section.innerText.toLowerCase();
-                if (text.includes(searchText)) {
-                    section.style.display = 'block';
-                    if (!visibleSectionId) visibleSectionId = section.id;
-                } else {
-                    section.style.display = 'none';
-                }
-            });
-            if (visibleSectionId) {
-                updateActiveNavLink(visibleSectionId);
-                scrollNavToActiveLink();
-            }
-        }
-
-        let searchBox = document.getElementById('searchInput');
-        if (searchBox) {
-            searchBox.addEventListener('keyup', searchWebsite);
-        }
-
-        // Swipe support
-        (function () {
-            let touchStartX = 0;
-            let touchEndX = 0;
-            let isAnimating = false;
-
-            const sectionsList = [
-                'latestjobSection', 
-                'result10thSection', 'result12thSection', 'AdmissionSection',
-                'pdfpyqsection', 'UniversitySection', 'answerkeySection', 'entranceExamSection'
-            ];
-
-            function getCurrentIndex() {
-                for (let i = 0; i < sectionsList.length; i++) {
-                    let sec = document.getElementById(sectionsList[i]);
-                    if (sec && sec.style.display !== 'none') return i;
-                }
-                return 0;
-            }
-
-            function animateSwipe(oldSection, newSection, direction, newSectionId) {
-                if (isAnimating) return;
-                isAnimating = true;
-                const startPos = direction === 'left' ? '100%' : '-100%';
-                const endPos = direction === 'left' ? '-100%' : '100%';
-                oldSection.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
-                newSection.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
-                newSection.style.display = 'block';
-                newSection.style.transform = `translateX(${startPos})`;
-                void newSection.offsetHeight;
-                oldSection.style.transform = `translateX(${endPos})`;
-                newSection.style.transform = 'translateX(0)';
-                setTimeout(() => {
-                    oldSection.style.display = 'none';
-                    oldSection.style.transform = '';
-                    newSection.style.transform = '';
-                    oldSection.style.transition = '';
-                    newSection.style.transition = '';
-                    isAnimating = false;
-                    updateActiveNavLink(newSectionId);
-                    scrollNavToActiveLink();
-                }, 380);
-            }
-
-            function showNext() {
-                if (isAnimating) return;
-                let current = getCurrentIndex();
-                if (current < sectionsList.length - 1) {
-                    let oldSec = document.getElementById(sectionsList[current]);
-                    let newSecId = sectionsList[current + 1];
-                    let newSec = document.getElementById(newSecId);
-                    if (oldSec && newSec) animateSwipe(oldSec, newSec, 'left', newSecId);
-                }
-            }
-
-            function showPrev() {
-                if (isAnimating) return;
-                let current = getCurrentIndex();
-                if (current > 0) {
-                    let oldSec = document.getElementById(sectionsList[current]);
-                    let newSecId = sectionsList[current - 1];
-                    let newSec = document.getElementById(newSecId);
-                    if (oldSec && newSec) animateSwipe(oldSec, newSec, 'right', newSecId);
-                }
-            }
-
-            document.body.addEventListener('touchstart', function (e) {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-
-            document.body.addEventListener('touchend', function (e) {
-                touchEndX = e.changedTouches[0].screenX;
-                let diff = touchEndX - touchStartX;
-                if (Math.abs(diff) < 50) return;
-                if (diff > 0) showPrev();
-                else showNext();
-            });
-        })();
-
-        // Initialize
-        showSection('latestjobSection');
-    </script>
+    window.onload = () => showSection('latestjobSection');
+</script>
 </body>
 </html>
