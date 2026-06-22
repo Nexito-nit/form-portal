@@ -354,7 +354,9 @@
 
 <body>
     <div class="nav-bar">
-        <a onclick="showSection('latestjobSection')">latest JOBS</a>
+        <a onclick="showSection('latestjobSection')">Latest JOBS</a>
+        <a onclick="showSection('resultSection')">Result</a>
+        <a onclick="showSection('admitcardSection')">Admit Card</a>
         <a onclick="showSection('result10thSection')">🎓 10th Result</a>
         <a onclick="showSection('result12thSection')">🎓 12th Result</a>
         <a onclick="showSection('AdmissionSection')">🎓 Admission</a>
@@ -1344,7 +1346,7 @@ For PH Candidates : ₹ 0/-</p>
 
     let touchStartX = 0;
     const sectionsList = [
-        'latestjobSection', 'result10thSection', 'result12thSection', 
+        'latestjobSection', 'resultSection', 'admitcardSection', 'result10thSection', 'result12thSection', 
         'AdmissionSection', 'UniversitySection', 
         'answerkeySection', 'entranceExamSection'
     ];
@@ -1391,7 +1393,7 @@ For PH Candidates : ₹ 0/-</p>
         });
 
         if (lastDateValue !== "") {
-            // सफाई करना: ब्रैकेट हटाना और स्पेस साफ़ करना
+            // सफाई करना: ब्रैकेट हटाना और स्पेस साफ़ करा
             let cleanDateStr = lastDateValue.split('(')[0].trim();
             
             // तारीख को पढ़ने की कोशिश
