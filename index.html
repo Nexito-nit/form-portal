@@ -359,6 +359,7 @@
     position: fixed; /* फिक्स्ड रहेगा */
     top: 0;
     width: 100%;
+    height: 50px;
     z-index: 1000;
     transition: top 0.3s; /* स्मूथ ऊपर-नीचे होने के लिए */
     box-shadow: 0 2px 4px rgba(0,0,0,0.08);
@@ -368,20 +369,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
+    padding: 0px;
     max-width: 1000px;
     margin: 0 auto;
 }
 
-.header-left { display: flex; align-items: center; gap: 8px; }
-.site-logo { height: 28px; width: auto; }
+.header-left { display: flex; align-items: center; gap: 0px; }
+.site-logo { height: 60px; width: auto; }
 .site-name { font-size: 20px; font-weight: bold; color: #212121; letter-spacing: -1px; }
 
-.header-right { display: flex; gap: 20px; font-size: 18px; color: #030303; }
+.header-right { display: flex; gap: 10px; font-size: 18px; color: #030303; }
 .header-right i { cursor: pointer; padding: 5px; }
 
 /* जब स्क्रॉल डाउन करें तो हेडर को ऊपर छुपाने के लिए क्लास */
-.nav-up { top: -60px !important; }
+.nav-up { top: -70px !important; }
 
 /* सर्च बार स्टाइल */
 .search-full-bar {
