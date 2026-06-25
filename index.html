@@ -353,6 +353,7 @@
 
 
 
+
 /* हेडर की बेसिक स्टाइल */
 .main-header {
     background: #fff;
@@ -369,7 +370,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px;
+    padding: 0px; 
+    height: 100%;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -381,17 +383,16 @@
 .header-right { display: flex; gap: 10px; font-size: 18px; color: #030303; }
 .header-right i { cursor: pointer; padding: 5px; }
 
-/* जब स्क्रॉल डाउन करें तो हेडर को ऊपर छुपाने के लिए क्लास */
+
 .nav-up { top: -70px !important; }
 
-/* सर्च बार स्टाइल */
+
 .search-full-bar {
     position: fixed;
-    top: -70px; /* शुरू में ऊपर छुपा रहेगा */
+    top: -70px; 
     left: 0;
     width: 100%;
-    height: 60px;
-    background: white;
+    height: 40px;
     display: flex;
     align-items: center;
     padding: 0 15px;
@@ -401,8 +402,7 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.search-full-bar.active { top: 0; } /* क्लिक करने पर नीचे आएगा */
-
+.search-full-bar.active { top: 0; } 
 .search-full-bar input {
     flex: 1;
     border: none;
