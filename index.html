@@ -349,8 +349,100 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
+
+
+/* हेडर की बेसिक स्टाइल */
+.main-header {
+    background: #fff;
+    position: fixed; /* फिक्स्ड रहेगा */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: top 0.3s; /* स्मूथ ऊपर-नीचे होने के लिए */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.header-left { display: flex; align-items: center; gap: 8px; }
+.site-logo { height: 28px; width: auto; }
+.site-name { font-size: 20px; font-weight: bold; color: #212121; letter-spacing: -1px; }
+
+.header-right { display: flex; gap: 20px; font-size: 18px; color: #030303; }
+.header-right i { cursor: pointer; padding: 5px; }
+
+/* जब स्क्रॉल डाउन करें तो हेडर को ऊपर छुपाने के लिए क्लास */
+.nav-up { top: -60px !important; }
+
+/* सर्च बार स्टाइल */
+.search-full-bar {
+    position: fixed;
+    top: -70px; /* शुरू में ऊपर छुपा रहेगा */
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    gap: 15px;
+    z-index: 2000;
+    transition: top 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-full-bar.active { top: 0; } /* क्लिक करने पर नीचे आएगा */
+
+.search-full-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #f1f1f1;
+    padding: 8px 15px;
+    border-radius: 20px;
+}
+
+.search-full-bar i { font-size: 20px; color: #606060; cursor: pointer; }
+
+body { padding-top: 50px; }
+
+      
+      
     </style>
+ <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<header class="main-header" id="navbar">
+    <div class="header-container">
+        <div class="header-left">
+            <img src="logo png.png" alt="Logo" class="site-logo">
+            <span class="site-name">form<span style="color:red">Update</span></span>
+        </div>
+        <div class="header-right">
+            <i class="fa-solid fa-magnifying-glass" onclick="openSearch()"></i>
+           
+        </div>
+    
+
+
+
+<div id="searchFullOverlay" class="search-full-bar">
+    
+    <input type="text" id="searchInput" placeholder="Search jobs, results..." onkeyup="searchWebsite()">
+</div>
+
 </head>
+</header>
 
 <body>
     <div class="nav-bar">
@@ -363,9 +455,7 @@
         <a onclick="showSection('answerkeySection')">ANSWER KEY</a>
     </div>
 
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="🔍 Search jobs, results...">
-    </div>
+    
 
     <div id="latestjobSection" class="section">
 
@@ -2642,8 +2732,110 @@ RRB NTPC Inter Level Examination 2025 </div>
     });
 }
 
-// इसे विंडो लोड पर चलायें
 window.addEventListener('load', autoHideExpiredJobs);
+
+     
+
+function searchWebsite() {
+    let input = document.getElementById('searchInput');
+    let filter = input.value.toLowerCase().trim();
+    let sections = document.querySelectorAll('.section');
+    let items = document.querySelectorAll('.job-card, .clickable-row, .table-row');
+    let noResultsDiv = document.getElementById('noResults');
+    
+    let matchFound = false;
+
+    if (filter === "") {
+        showSection('latestjobSection');
+        noResultsDiv.style.display = "none";
+        return;
+    }
+
+    sections.forEach(sec => sec.style.display = 'none');
+
+    items.forEach(item => {
+        let text = item.innerText.toLowerCase();
+        if (text.includes(filter)) {
+            item.style.display = ""; 
+            matchFound = true; 
+            let parentSection = item.closest('.section');
+            if (parentSection) parentSection.style.display = 'block';
+        } else {
+            item.style.display = "none";
+        }
+    });
+
+    
+    if (!matchFound) {
+        noResultsDiv.style.display = "block";
+    } else {
+        noResultsDiv.style.display = "none";
+    }
+}
+
+
+function searchOnGoogle() {
+    let query = document.getElementById('searchInput').value;
+   
+    let googleURL = "https://www.google.com/search?q=" + encodeURIComponent(query);
+    window.open(googleURL, '_blank');
+}
+     
+
+
+
+   
+var lastScrollTop = 0;
+var navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", function() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+       
+        navbar.classList.add("nav-up");
+    } else {
+        
+        navbar.classList.remove("nav-up");
+    }
+    lastScrollTop = scrollTop;
+});
+
+
+function openSearch() {
+    document.getElementById("searchFullOverlay").classList.add("active");
+    document.getElementById("searchInput").focus(); 
+}
+
+function closeSearch() {
+    document.getElementById("searchFullOverlay").classList.remove("active");
+
+    document.getElementById("searchInput").value = "";
+    searchWebsite(); 
+}
+
+function clearSearch() {
+    document.getElementById("searchInput").value = "";
+    document.getElementById("searchInput").focus();
+    searchWebsite();
+}
+
+
+
+
+
+window.addEventListener('click', function(event) {
+    let searchBar = document.getElementById("searchFullOverlay");
+    let searchIcon = document.querySelector(".fa-magnifying-glass"); 
+
+    if (searchBar.classList.contains("active")) {
+        
+        if (!searchBar.contains(event.target) && event.target !== searchIcon) {
+            closeSearch();
+        }
+    }
+});
+
      
 </script>
 </body>
